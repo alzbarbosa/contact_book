@@ -1,4 +1,5 @@
 def style_button(button, primary_color='#4CAF50', secondary_color='#3e8e41'):
+    """Styles the QPushButton. Primary color is the main background-color bad secondary-color is for hover"""
     button.setStyleSheet(f'''
         QPushButton {{
             background-color: {primary_color};
@@ -34,6 +35,7 @@ def style_menu(menu_bar):
 
 
 def style_header(header):
+    """Styles the header of the table"""
     header.setStyleSheet("""
                         QHeaderView::section {
                             background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #616161, stop: 0.5 #424242, 

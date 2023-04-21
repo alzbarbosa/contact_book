@@ -5,11 +5,11 @@ class DatabaseConnection:
     def __init__(self, database_file="database.db"):
         self.database_file = database_file
 
-    def createTable(self):
+    def connect(self):
         conn = sqlite3.connect(self.database_file)
         cur = conn.cursor()
         cur.execute('''
-            CREATE TABLE contacts (
+            CREATE TABLE IF NOT EXISTS contacts (
                 Id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name VARCHAR(100) NOT NULL,
                 type VARCHAR(20),
@@ -18,12 +18,4 @@ class DatabaseConnection:
             )
         ''')
         conn.commit()
-        conn.close()
-
-
-    def connect(self):
-        conn = sqlite3.connect(self.database_file)
         return conn
-
-
-# DatabaseConnection().createTable()
